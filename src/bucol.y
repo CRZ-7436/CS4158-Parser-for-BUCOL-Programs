@@ -1,8 +1,10 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#define YYDEBUG 1
 void yyerror(const char *s);
 extern int yylex(void);
+extern int yydebug;
 %}
 
 %union {
@@ -12,7 +14,7 @@ extern int yylex(void);
 }
 
 %token <str> STRING IDENTIFIER S S_FLOAT
-%token START END MAIN MOVE ADD INPUT PRINT TO  // Added TO token
+%token START END MAIN MOVE ADD INPUT PRINT TO
 %token <num> INTEGER
 %token <fnum> FLOAT
 %token DOT SEMICOLON
@@ -22,7 +24,7 @@ extern int yylex(void);
 %%
 
 program:
-    START DOT declarations MAIN statements END DOT
+    START DOT declarations MAIN DOT statements END DOT
     ;
 
 declarations:
@@ -48,6 +50,7 @@ statement:
 
 assignment_statement:
     MOVE value TO IDENTIFIER DOT
+    | ADD value TO IDENTIFIER DOT
     ;
 
 value:
@@ -83,8 +86,11 @@ void yyerror(const char *s) {
 }
 
 int main(void) {
+    yydebug = 1;
     if (yyparse() == 0) {
         printf("Program is syntactically correct.\n");
+    } else {
+        printf("Program has syntax errors.\n");
     }
     return 0;
 }
