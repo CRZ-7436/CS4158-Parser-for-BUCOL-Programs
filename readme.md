@@ -8,7 +8,7 @@
 My code has been tested on Linux but should work on any Unix-like system. Compatibility with Windows will probably require additional tools like Cygwin or MinGW.
 
 ## Compiling the Parser
-To compile the parser, you need to generate the lexer and parser code using Flex and Bison, and then compile these into an executable using GCC. Run the following commands in the terminal:
+To compile the parser youll need to cd into the src folder, then you need to generate the lexer and parser code using Flex and Bison, and then compile these into an executable using GCC. Run the following commands in the terminal:
 
 ```bash
 flex -o lex.yy.c bucol.l
