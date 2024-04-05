@@ -1,0 +1,29 @@
+START.
+SSS A-B.
+SSSS C.
+SSS.S D.
+SSSSS E-F.
+
+MAIN.
+PRINT "Initialization".
+MOVE 123 TO A-B.
+MOVE 4567 TO C.
+MOVE 89.01 TO D.
+MOVE 23456 TO E-F.
+PRINT "After assignments"; A-B; C; D; E-F.
+
+PRINT "Adding values".
+ADD 10 TO A-B.
+ADD 20 TO C.
+ADD 30.02 TO D.
+ADD 40 TO E-F.
+PRINT "After additions"; A-B; C; D; E-F.
+
+PRINT "Input section".
+INPUT A-B; C; D; E-F.
+PRINT "After input"; A-B; C; D; E-F.
+
+PRINT "Final output".
+PRINT "Values"; A-B; " "; C; " "; D; " "; E-F.
+
+END.
